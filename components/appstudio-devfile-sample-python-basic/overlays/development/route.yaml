@@ -1,0 +1,23 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: appstudio-devfile-sample-python-basic
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: appstudio-devfile-sample-python-basic
+    app.kubernetes.io/part-of: myapp
+  name: appstudio-devfile-sample-kopk
+spec:
+  path: /
+  port:
+    targetPort: 8081
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: appstudio-devfile-sample-python-basic
+    weight: null
+status: {}
